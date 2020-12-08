@@ -2,7 +2,7 @@
 # Created by https://www.toptal.com/developers/gitignore/api/pycharm,django,macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=pycharm,django,macos
 
-my_settins.py
+my_settings.py
 
 ### Django ###
 *.log
