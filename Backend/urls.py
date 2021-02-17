@@ -20,5 +20,5 @@ import userSystem
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('userSystem/', include('userSystem.urls')),
+    path('user/', include('userSystem.urls')),
 ]
