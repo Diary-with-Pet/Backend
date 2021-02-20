@@ -53,3 +53,9 @@ class UserLoginSerializer(serializers.Serializer):
             'email': user.email,
             'token': jwt_token
         }
+
+
+class UserSerializer(serializers.Serializer):
+    class Meta:
+        model = User
+        fields = "id"
