@@ -2,6 +2,8 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.models import update_last_login
 from rest_framework import serializers
 from rest_framework_jwt.settings import api_settings
+
+from todo.serializers import TodoSerializer
 from .models import User
 
 
@@ -56,6 +58,8 @@ class UserLoginSerializer(serializers.Serializer):
 
 
 class UserSerializer(serializers.Serializer):
+    todo = TodoSerializer(many=True, read_only=False)
+
     class Meta:
         model = User
-        fields = "id"
+        fields = ('id', 'todo')
