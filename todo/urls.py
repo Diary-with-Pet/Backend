@@ -1,3 +1,11 @@
 from django.conf.urls import url
 
-urlpatterns = []
+from todo.views import TodoViewSet
+
+todo_list = TodoViewSet.as_view({"get": "list", "post": "create"})
+todo_detail = TodoViewSet.as_view({"patch": "partial_update", "delete": "destroy"})
+
+urlpatterns = [
+    url("^$", todo_list, name="todo-list"),
+    url("^(?P<pk>[0-9]+)/$", todo_detail, name="todo-detail"),
+]
