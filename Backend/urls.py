@@ -21,5 +21,5 @@ from todo.views import TodoViewSet
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/', include('userSystem.urls')),
-    path('todo/', include('todo.urls'))
+    path('api/', include('todo.urls'))
 ]
