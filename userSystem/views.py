@@ -12,7 +12,7 @@ from userSystem.serializers import UserCreateSerializer, UserLoginSerializer
 def create_user(request):
     serializer = UserCreateSerializer(data=request.data)
     if not serializer.is_valid(raise_exception=True):
-        return Response({"message": "request error"}, status=status.HTTP_409_CONFLICT)
+        return Response({"message": "Request Body Error"}, status=status.HTTP_409_CONFLICT)
 
     if User.objects.filter(email=serializer.validated_data['email']).first() is None:
         serializer.save()
@@ -29,10 +29,10 @@ def login(request):
         if not serializer.is_valid(raise_exception=True):
             return Response({"message": "Request Body Error."}, status=status.HTTP_409_CONFLICT)
         if serializer.validated_data['email'] == "None":
-            return Response({'message': 'fail'}, status=status.HTTP_200_OK)
+            return Response({'message': 'fail'}, status=status.HTTP_400_BAD_REQUEST)
 
         response = {
-            'success': 'True',
+            'message': 'success',
             'token': serializer.data['token']
         }
         return Response(response, status=status.HTTP_200_OK)
