@@ -8,4 +8,4 @@ class Todo(models.Model):
     user = models.ForeignKey(User, related_name="todo", on_delete=models.CASCADE, null=True)
     title = models.CharField(max_length=10)
     content = models.CharField(max_length=30)
-    classification = models.IntegerField(null=False)
+    classification = models.IntegerField(default=1)
