@@ -7,4 +7,4 @@ class MyPageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('email', 'username', 'profile_image')
+        fields = ('email', 'username', 'profile_image', 'profile')
