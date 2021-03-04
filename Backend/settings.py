@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'userSystem',
     'todo',
     'mypage',
+    'mypet',
 ]
 
 MIDDLEWARE = [
