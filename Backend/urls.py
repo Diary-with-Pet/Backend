@@ -1,7 +1,6 @@
 from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path, include
-from rest_framework_jwt.views import obtain_jwt_token, verify_jwt_token, refresh_jwt_token
 
 from mypet.views import MyPetViewSet
 from todo.views import TodoViewSet
