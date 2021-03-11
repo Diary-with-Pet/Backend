@@ -10,7 +10,7 @@ from .models import User
 class UserCreateSerializer(serializers.Serializer):
     email = serializers.EmailField(required=True)
     username = serializers.CharField(required=True)
-    profile_image = serializers.ImageField(use_url=True)
+    profile_image = serializers.ImageField(use_url=True, required=False, allow_null=True)
     password = serializers.CharField(required=True)
 
     def create(self, validated_data):

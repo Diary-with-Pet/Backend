@@ -47,9 +47,10 @@ class User(AbstractBaseUser, PermissionsMixin):
         max_length=30,
     )
 
-    profile_image = models.ImageField(default='media/user/default_image.jpeg', upload_to='user')
+    profile_image = models.ImageField(default='media/user/default_image.jpeg', upload_to='user',
+                                      null=True, blank=True)
 
-    profile = models.CharField(null=True, max_length=20, blank=True)
+    profile = models.CharField(null=True, max_length=80, blank=True)
 
     is_staff = models.BooleanField(
         _('staff status'),
