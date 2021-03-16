@@ -15,3 +15,11 @@ class DiarySerializer(serializers.ModelSerializer):
     class Meta:
         model = Diary
         fields = ('id', 'title', 'content', 'date_created', 'images')
+
+    def create(self, validated_data):
+        images_data = self.context['request'].FILES
+        diary = Diary.objects.create(**validated_data)
+        for image_data in images_data.getlist('image'):
+            DiaryImage.objects.create(diary=diary, image=image_data)
+        return diary
+
