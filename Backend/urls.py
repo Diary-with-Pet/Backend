@@ -1,6 +1,4 @@
-from django.conf import settings
 from django.conf.urls import url
-from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
@@ -31,4 +29,4 @@ urlpatterns = [
 
     url("^diary/$", diary_list, name="diary-list"),
     url("^diary/(?P<pk>[0-9]+)/$", diary_detail, name="diary-detail"),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]

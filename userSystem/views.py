@@ -4,7 +4,7 @@ from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 
 from userSystem.models import User
-from userSystem.serializers import UserCreateSerializer, UserLoginSerializer
+from userSystem.serializers import UserCreateSerializer
 
 
 @api_view(['POST'])

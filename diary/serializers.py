@@ -16,7 +16,6 @@ class DiarySerializer(serializers.ModelSerializer):
 
     def get_images(self, obj):
         image = obj.diaryimage_set.all()
-        # images_set = obj.image_set.all()
         return DiaryImageSerializer(instance=image, many=True).data
 
     class Meta:

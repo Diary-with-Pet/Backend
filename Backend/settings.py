@@ -28,7 +28,6 @@ SECRET_KEY = my_settings.SECRET_KEY
 DEBUG = True
 
 ALLOWED_HOSTS = ['172.20.10.2']
-# ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -77,7 +76,7 @@ LOGGING = {
     }
 }
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '127.0.0.1:3000', '127.0.0.1:8000', '172.20.10.2', '172.20.10.2:8000']
+# ALLOWED_HOSTS = ['localhost', '127.0.0.1', '127.0.0.1:3000', '127.0.0.1:8000', '172.20.10.2', '172.20.10.2:8000']
 
 CORS_ORIGIN_ALLOW_ALL = True
 
@@ -145,7 +144,7 @@ DATABASES = my_settings.DATABASES
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
-AUTH_USER_MODEL = 'userSystem.User'  # 'AppName.모델명'
+AUTH_USER_MODEL = 'userSystem.User'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -180,5 +179,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_URL = '/media/'
+MEDIA_URL = 'http://127.0.0.1:8001/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
