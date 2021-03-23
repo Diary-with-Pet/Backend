@@ -21,12 +21,21 @@ urlpatterns = [
     path('user/', include('userSystem.urls')),
     path('mypage/', include('mypage.urls')),
 
-    url("^todo/$", todo_list, name="todo-list"),
-    url("^todo/(?P<pk>[0-9]+)/$", todo_detail, name="todo-detail"),
+    path('todo/', todo_list, name="todo-list"),
+    path('todo/<int:pk>/', todo_detail, name="todo-detail"),
 
-    url("^mypet/$", mypet_list, name="mypet-list"),
-    url("^mypet/(?P<pk>[0-9]+)/$", mypet_detail, name="mypet-detail"),
+    path('mypet/', mypet_list, name="mypet-list"),
+    path('mypet/<int:pk>/', mypet_detail, name="mypet-detail"),
 
-    url("^diary/$", diary_list, name="diary-list"),
-    url("^diary/(?P<pk>[0-9]+)/$", diary_detail, name="diary-detail"),
+    path('diary/', diary_list, name="diary-list"),
+    path('diary/<int:pk>/', diary_detail, name="diary-detail"),
 ]
+
+# url("^todo/$", todo_list, name="todo-list"),
+# url("^todo/(?P<pk>[0-9]+)/$", todo_detail, name="todo-detail"),
+#
+# url("^mypet/$", mypet_list, name="mypet-list"),
+# url("^mypet/(?P<pk>[0-9]+)/$", mypet_detail, name="mypet-detail"),
+#
+# url("^diary/$", diary_list, name="diary-list"),
+# url("^diary/(?P<pk>[0-9]+)/$", diary_detail, name="diary-detail"),
