@@ -1,16 +1,25 @@
-from rest_framework import viewsets, permissions, status
+from rest_framework import status
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+from rest_framework.views import APIView
 
+from diary.models import Diary
 from diary.serializers import DiarySerializer
 
 
-class DiaryViewSet(viewsets.ModelViewSet):
-    permission_classes = [permissions.IsAuthenticated, ]
-    serializer_class = DiarySerializer
+class DiaryPostView(APIView):
 
-    def get_queryset(self):
-        return self.request.user.diary_user.all()
+    permission_classes = (IsAuthenticated, )
 
-    def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
-        return Response({"message": "success"}, status=status.HTTP_201_CREATED)
+    def post(self, request):
+        serializer = DiarySerializer(data=request.data, context={"request": request})
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def get(self, request):
+        user = self.request.user
+        diary = Diary.objects.filter(user_id=user.id)
+        serializer = DiarySerializer(diary, context={"request": request}, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)

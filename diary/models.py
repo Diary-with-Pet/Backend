@@ -13,5 +13,5 @@ class Diary(models.Model):
 
 class DiaryImage(models.Model):
     diary = models.ForeignKey(Diary, on_delete=models.CASCADE)
-    image = models.ImageField(default='media/diary/default_image.jpeg', upload_to='diary',
+    image = models.ImageField(default='/media/diary/default_image.jpeg', upload_to='diary',
                               blank=True, null=True)
