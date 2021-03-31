@@ -3,5 +3,6 @@ from django.urls import path
 from diary import views
 
 urlpatterns = [
-    path('post/', views.DiaryPostView.as_view()),
+    # path('', views.DiaryView.as_view()),
+    # path('<int:pk>/', views.DiaryDetailView.as_view()),
 ]

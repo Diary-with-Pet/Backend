@@ -5,6 +5,10 @@ from django.contrib import admin
 from django.urls import path, include
 
 # from diary.views import DiaryViewSet
+from rest_framework import routers
+
+from diary import views
+from diary.views import DiaryViewSet
 from mypet.views import MyPetViewSet
 from todo.views import TodoViewSet
 
@@ -14,8 +18,7 @@ todo_detail = TodoViewSet.as_view({"patch": "partial_update", "delete": "destroy
 mypet_list = MyPetViewSet.as_view({"get": "list", "post": "create"})
 mypet_detail = MyPetViewSet.as_view({"patch": "partial_update", "delete": "destroy"})
 
-# diary_list = DiaryViewSet.as_view({"get": "list", "post": "create"})
-# diary_detail = DiaryViewSet.as_view({"patch": "partial_update", "delete": "destroy"})
+diary_list = DiaryViewSet.as_view({"get": "list", "post": "create"})
 
 
 urlpatterns = [
@@ -29,7 +32,6 @@ urlpatterns = [
     path('mypet/', mypet_list, name="mypet-list"),
     path('mypet/<int:pk>/', mypet_detail, name="mypet-detail"),
 
-    # path('diary/', diary_list, name="diary-list"),
-    # path('diary/<int:pk>/', diary_detail, name="diary-detail"),
-    path('diary/', include('diary.urls')),
+    path('diary/', diary_list, name="diary-list")
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -59,22 +59,22 @@ MIDDLEWARE = [
 ]
 
 # LOGGING
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-        }
-    },
-    'loggers': {
-        'django.db.backends': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-        }
-    }
-}
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'handlers': {
+#         'console': {
+#             'level': 'DEBUG',
+#             'class': 'logging.StreamHandler',
+#         }
+#     },
+#     'loggers': {
+#         'django.db.backends': {
+#             'handlers': ['console'],
+#             'level': 'DEBUG',
+#         }
+#     }
+# }
 
 # ALLOWED_HOSTS = ['localhost', '127.0.0.1', '127.0.0.1:3000', '127.0.0.1:8000', '172.20.10.2', '172.20.10.2:8000']
 
