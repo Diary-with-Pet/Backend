@@ -5,6 +5,7 @@ from todo.serializers import TodoSerializer
 
 
 class TodoViewSet(viewsets.ModelViewSet):
+
     permission_classes = [permissions.IsAuthenticated, ]
     serializer_class = TodoSerializer
 

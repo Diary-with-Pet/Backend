@@ -179,6 +179,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# MEDIA_URL = 'http://172.20.10.2:8000/media/' 요걸로 바꾸고 url에 추가 안해도 결과는 똑같지만 not found가 뜸.
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

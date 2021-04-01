@@ -5,6 +5,7 @@ from userSystem.models import User
 
 
 class MyPageList(generics.ListAPIView):
+
     permission_classes = [permissions.IsAuthenticated, ]
     serializer_class = MyPageSerializer
 

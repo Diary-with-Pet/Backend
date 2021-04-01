@@ -1,10 +1,11 @@
-from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, PermissionsMixin
+from django.db import models
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 
 
 class UserManager(BaseUserManager):
+
     use_in_migrations = True
 
     def _create_user(self, email, password, **extra_fields):
@@ -34,9 +35,7 @@ class UserManager(BaseUserManager):
 
 
 class User(AbstractBaseUser, PermissionsMixin):
-    """
-    customized User
-    """
+
     email = models.EmailField(
         verbose_name=_('email id'),
         max_length=64,

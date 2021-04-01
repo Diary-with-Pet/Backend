@@ -4,6 +4,7 @@ from userSystem.models import User
 
 
 class MyPet(models.Model):
+
     id = models.BigAutoField(primary_key=True)
     user = models.ForeignKey(User, related_name="mypet", on_delete=models.CASCADE, null=True)
     pet_name = models.CharField(max_length=20)

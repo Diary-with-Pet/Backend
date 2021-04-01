@@ -8,6 +8,7 @@ from .models import User
 
 
 class UserCreateSerializer(serializers.Serializer):
+
     email = serializers.EmailField(required=True)
     username = serializers.CharField(required=True)
     profile_image = serializers.ImageField(use_url=True, required=False, allow_null=True)
@@ -30,6 +31,7 @@ JWT_ENCODE_HANDLER = api_settings.JWT_ENCODE_HANDLER
 
 
 class UserLoginSerializer(serializers.Serializer):
+
     email = serializers.CharField(max_length=64)
     password = serializers.CharField(max_length=128, write_only=True)
     token = serializers.CharField(max_length=255, read_only=True)

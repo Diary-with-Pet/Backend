@@ -5,6 +5,7 @@ from mypet.serializers import MyPetSerializer
 
 
 class MyPetViewSet(viewsets.ModelViewSet):
+
     permission_classes = [permissions.IsAuthenticated, ]
     serializer_class = MyPetSerializer
 

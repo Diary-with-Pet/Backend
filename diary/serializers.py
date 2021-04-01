@@ -4,6 +4,7 @@ from diary.models import DiaryImage, Diary
 
 
 class DiaryImageSerializer(serializers.ModelSerializer):
+
     image = serializers.ImageField(use_url=True)
 
     class Meta:
@@ -12,6 +13,7 @@ class DiaryImageSerializer(serializers.ModelSerializer):
 
 
 class DiarySerializer(serializers.ModelSerializer):
+
     images = serializers.SerializerMethodField()
 
     def get_images(self, obj):
@@ -28,3 +30,10 @@ class DiarySerializer(serializers.ModelSerializer):
         for image_data in image_set.getlist('image'):
             DiaryImage.objects.create(diary=instance, image=image_data)
         return instance
+
+
+class DiaryListSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Diary
+        fields = ['id', 'title', 'date_created']
