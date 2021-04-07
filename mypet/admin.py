@@ -7,4 +7,3 @@ from mypet.models import MyPet
 class MyPetAdmin(admin.ModelAdmin):
     list_display = ['user', 'pet_name', 'birthday']
     raw_id_fields = ['user']
-    pass

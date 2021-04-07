@@ -4,6 +4,8 @@
 
 my_settings.py
 
+.idea
+
 ### Django ###
 *.log
 *.pot
